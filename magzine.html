@@ -132,7 +132,7 @@
 
   .nameplate-top{
     position:relative; z-index:2;
-    padding:44px clamp(20px,6vw,72px) 0;
+    padding:104px clamp(20px,6vw,72px) 0;
     display:flex; justify-content:space-between; align-items:center;
     font-family:var(--sans); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ivory-dim);
   }
@@ -361,8 +361,6 @@
   }
   .strip figcaption .n{ font-family:var(--sans); font-style:normal; font-size:9px; letter-spacing:0.1em; color:var(--gold-1); }
 
-  .strip-6{ grid-template-columns:repeat(3,1fr); }
-
   @media (max-width: 860px){
     .spread-head{ grid-template-columns:1fr; gap:24px; }
     .contents{ grid-template-columns:1fr; }
@@ -375,6 +373,14 @@
     .strip figure:nth-child(3){ grid-column:span 1; }
     .spec-row{ flex-wrap:wrap; gap:26px; }
     .nameplate .wordmark-logo{ margin:20px auto 14px; }
+    header.mast{ padding:14px 20px; }
+    header.mast .brand img{ height:30px; width:30px; }
+    .nameplate-top{ padding-top:110px; font-size:8.5px; letter-spacing:0.16em; }
+    .nameplate-top .badge img{ width:24px; height:24px; }
+    .nameplate-top .badge{ gap:8px; }
+  }
+  @media (max-width: 400px){
+    .nameplate-top{ flex-direction:column; align-items:flex-start; gap:8px; padding-top:106px; }
   }
 
   /* ---------- Closing ---------- */
@@ -449,7 +455,7 @@
   <div class="cover-scrim"></div>
 
   <div class="nameplate-top">
-    <div class="badge">The Fleet Journal</div>
+    <div class="badge"> The Fleet Journal</div>
     <div>London, United Kingdom</div>
   </div>
 
@@ -464,7 +470,7 @@
     <p class="cover-sub">A private showing of the motorcars in the Elite Premium Services fleet — the Rolls‑Royce Phantom, the Rolls‑Royce Ghost, and the Mercedes‑Benz G‑Class. Every journey, considered.</p>
     <div class="cover-meta">
       <div>Marque<b>Rolls‑Royce &amp; Mercedes‑Benz</b></div>
-      <div>Service<b>Chauffeur</b></div>
+      <div>Service<b>Chauffeur &amp; Private Hire</b></div>
       <div>Based in<b>London</b></div>
     </div>
   </div>
