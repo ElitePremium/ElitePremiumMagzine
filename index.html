@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Premium Services Limited — London Chauffeur &amp; Luxury Car Hire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e1013;
+    --navy-2:#15181c;
+    --cream:#faf7f1;
+    --white:#ffffff;
+    --ink:#1c1c1e;
+    --stone:#6b6a66;
+    --gold:#b8925a;
+    --gold-light:#d8b787;
+    --oxblood:#7a2530;
+    --oxblood-bright:#8f2c38;
+    --line:#e7e1d5;
+    --display:'Playfair Display', serif;
+    --sans:'Jost', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{ max-width:1240px; margin:0 auto; padding-left:clamp(20px,4vw,48px); padding-right:clamp(20px,4vw,48px); }
+  .eyebrow{
+    font-family:var(--sans); text-transform:uppercase; letter-spacing:0.28em; font-size:11px; font-weight:600;
+    color:var(--gold); display:flex; align-items:center; gap:12px;
+  }
+  .eyebrow::before{ content:''; width:28px; height:1px; background:var(--gold); }
+  .eyebrow.center{ justify-content:center; } .eyebrow.center::before{ display:none; }
+  .section-head{ text-align:center; max-width:680px; margin:0 auto 56px; }
+  .section-head h2{ font-family:var(--display); font-weight:600; font-size:clamp(30px,4vw,44px); margin:14px 0 0; color:var(--ink); }
+  .section-head p{ color:var(--stone); font-size:16px; line-height:1.7; margin-top:16px; }
+  .section-head.light h2, .section-head.light p{ color:var(--cream); }
+
+  /* ---------- Top info bar ---------- */
+  .topbar{
+    background:var(--navy); color:#c8c6c1;
+    font-size:12px; letter-spacing:0.04em;
+    padding:9px 0;
+  }
+  .topbar .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+  .topbar a{ color:#c8c6c1; }
+  .topbar .contacts{ display:flex; gap:26px; }
+  .topbar .contacts span{ display:inline-flex; align-items:center; gap:7px; }
+  .topbar .socials{ display:flex; gap:14px; }
+  @media (max-width:700px){ .topbar .socials{display:none;} }
+
+  /* ---------- Header ---------- */
+  header.mast{
+    position:sticky; top:0; z-index:60;
+    background:rgba(14,16,19,0.97);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(184,146,90,0.25);
+  }
+  header.mast .wrap{ display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,4vw,48px); }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ height:44px; width:44px; border-radius:50%; box-shadow:0 0 0 1px var(--gold); }
+  .brand .brand-text{ display:flex; flex-direction:column; line-height:1.2; }
+  .brand .brand-text b{ font-family:var(--display); font-weight:700; font-size:18px; color:var(--cream); letter-spacing:0.02em; }
+  .brand .brand-text small{ font-family:var(--sans); font-size:9px; letter-spacing:0.22em; color:var(--gold-light); font-weight:500; }
+  nav.primary{ display:flex; align-items:center; gap:34px; }
+  nav.primary a{ font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#e6e3db; padding-bottom:3px; border-bottom:1px solid transparent; transition:.25s; }
+  nav.primary a:hover{ color:var(--gold-light); border-color:var(--gold); }
+  .header-cta{ display:flex; align-items:center; gap:22px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 26px;
+    font-family:var(--sans); font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    border:1px solid var(--gold); color:var(--cream); transition:.3s;
+  }
+  .btn.solid{ background:var(--oxblood); border-color:var(--oxblood); }
+  .btn.solid:hover{ background:var(--oxblood-bright); border-color:var(--oxblood-bright); }
+  .btn.gold:hover{ background:var(--gold); color:var(--navy); }
+  .btn.dark{ border-color:var(--gold); color:var(--ink); }
+  .btn.dark:hover{ background:var(--navy); color:var(--cream); border-color:var(--navy); }
+  @media (max-width:980px){ nav.primary{display:none;} }
+  @media (max-width:640px){ .header-cta .btn span.long{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; min-height:88vh; display:flex; align-items:center;
+    background:#000;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('Phantom/Phantom Front Face.png');
+    background-size:cover; background-position:50% 35%;
+    filter:brightness(0.5) saturate(0.95);
+  }
+  .hero-scrim{ position:absolute; inset:0; background:linear-gradient(100deg, rgba(8,8,9,0.92) 10%, rgba(8,8,9,0.55) 50%, rgba(8,8,9,0.25) 100%); }
+  .hero .wrap{ position:relative; z-index:2; padding-top:60px; padding-bottom:60px; }
+  .hero-content{ max-width:640px; }
+  .hero-content .eyebrow{ color:var(--gold-light); }
+  .hero h1{
+    font-family:var(--display); font-weight:700; color:var(--cream);
+    font-size:clamp(38px,5.4vw,66px); line-height:1.08; margin:18px 0 20px;
+  }
+  .hero h1 em{ font-style:italic; font-weight:500; color:var(--gold-light); }
+  .hero p{ color:#d8d5cc; font-size:17px; line-height:1.75; max-width:52ch; margin:0 0 34px; }
+  .hero-btns{ display:flex; gap:18px; flex-wrap:wrap; }
+  .hero-stats{
+    margin-top:64px; display:flex; gap:50px; flex-wrap:wrap;
+    padding-top:30px; border-top:1px solid rgba(216,183,135,0.25);
+  }
+  .hero-stats div b{ display:block; font-family:var(--display); font-weight:700; font-size:26px; color:var(--gold-light); }
+  .hero-stats div span{ font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#b9b6ad; }
+
+  /* ---------- Intro strip ---------- */
+  .intro{ background:var(--white); padding:100px 0; border-bottom:1px solid var(--line); }
+  .intro .grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center; }
+  .intro h2{ font-family:var(--display); font-weight:600; font-size:clamp(28px,3.6vw,40px); line-height:1.25; margin:14px 0 0; }
+  .intro p{ color:var(--stone); font-size:16px; line-height:1.85; margin-top:20px; }
+  .intro-points{ list-style:none; margin:28px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:18px 26px; }
+  .intro-points li{ display:flex; gap:12px; font-size:14.5px; color:var(--ink); align-items:flex-start; }
+  .intro-points li::before{ content:'✦'; color:var(--gold); font-size:12px; margin-top:3px; }
+  @media (max-width:860px){ .intro .grid{ grid-template-columns:1fr; } .intro-points{ grid-template-columns:1fr; } }
+
+  /* ---------- Fleet ---------- */
+  .fleet{ background:var(--cream); padding:110px 0; scroll-margin-top:96px; }
+  #services, #testimonials, #enquire{ scroll-margin-top:96px; }
+  .fleet-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:34px; }
+  .fleet-card{ background:var(--white); border:1px solid var(--line); display:flex; flex-direction:column; transition:transform .35s ease, box-shadow .35s ease; }
+  .fleet-card:hover{ transform:translateY(-6px); box-shadow:0 30px 50px -25px rgba(20,15,5,0.25); }
+  .fleet-card .fc-img{ aspect-ratio:4/3; overflow:hidden; position:relative; }
+  .fleet-card .fc-img img{ width:100%; height:100%; object-fit:cover; transition:transform 1s ease; }
+  .fleet-card:hover .fc-img img{ transform:scale(1.06); }
+  .fleet-card .fc-tag{
+    position:absolute; top:16px; left:16px; background:rgba(14,16,19,0.85); color:var(--gold-light);
+    font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; padding:6px 12px;
+  }
+  .fleet-card .fc-body{ padding:28px 26px 30px; display:flex; flex-direction:column; flex:1; }
+  .fleet-card h3{ font-family:var(--display); font-weight:700; font-size:23px; margin:0; color:var(--ink); }
+  .fleet-card .fc-specs{ display:flex; gap:18px; margin:12px 0 14px; font-size:11.5px; color:var(--stone); letter-spacing:0.02em; }
+  .fleet-card .fc-specs b{ color:var(--ink); }
+  .fleet-card p{ color:var(--stone); font-size:14.5px; line-height:1.7; margin:0 0 22px; flex:1; }
+  .fleet-card .fc-cta{ display:flex; gap:12px; }
+  .fc-link{ font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--oxblood); border-bottom:1px solid var(--oxblood); padding-bottom:3px; }
+  @media (max-width:768px){ .fleet-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Gallery strip (detail shots) ---------- */
+  .gallery{ background:var(--navy); padding:90px 0; }
+  .gallery .section-head h2, .gallery .section-head p{ color:var(--cream); }
+  .gallery-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:14px; }
+  .gallery-grid .g-frame{ aspect-ratio:3/4; overflow:hidden; }
+  .gallery-grid img{ width:100%; height:100%; object-fit:cover; transition:transform .8s ease, filter .4s ease; filter:grayscale(0.15) brightness(0.92); }
+  .gallery-grid .g-frame:hover img{ transform:scale(1.08); filter:none; }
+  @media (max-width:860px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:480px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- Services ---------- */
+  .services{ background:var(--white); padding:110px 0; }
+  .services-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+  .service-card{ padding:38px 26px; border:1px solid var(--line); text-align:center; transition:.3s; }
+  .service-card:hover{ border-color:var(--gold); box-shadow:0 20px 40px -28px rgba(20,15,5,0.3); }
+  .service-card .ic{
+    width:56px; height:56px; margin:0 auto 22px; border-radius:50%; border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:var(--display); font-style:italic; font-size:20px;
+  }
+  .service-card h3{ font-family:var(--display); font-weight:600; font-size:19px; margin:0 0 12px; }
+  .service-card p{ color:var(--stone); font-size:14px; line-height:1.7; margin:0; }
+  @media (max-width:980px){ .services-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{ background:var(--cream); padding:110px 0; }
+  .t-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+  .t-card{ background:var(--white); padding:34px 30px; border:1px solid var(--line); position:relative; }
+  .t-card .quote-mark{ font-family:var(--display); font-size:52px; color:var(--gold); line-height:1; display:block; margin-bottom:6px; }
+  .t-card p{ font-family:var(--display); font-style:italic; font-size:17px; line-height:1.65; color:var(--ink); margin:0 0 20px; }
+  .t-card cite{ font-style:normal; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--stone); }
+  @media (max-width:860px){ .t-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{ background:var(--oxblood); padding:80px 0; text-align:center; position:relative; overflow:hidden; }
+  .cta-band::before{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 0%, rgba(216,183,135,0.18), transparent 55%); }
+  .cta-band .in{ position:relative; z-index:1; }
+  .cta-band .eyebrow{ color:var(--gold-light); justify-content:center; }
+  .cta-band .eyebrow::before{ display:none; }
+  .cta-band h2{ font-family:var(--display); font-weight:700; color:var(--cream); font-size:clamp(26px,3.6vw,40px); margin:14px 0 30px; max-width:20ch; margin-left:auto; margin-right:auto; }
+  .cta-band .btn-row{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .cta-band .btn{ border-color:var(--gold-light); }
+  .cta-band .btn.gold{ background:var(--gold); color:var(--navy); border-color:var(--gold); }
+  .cta-band .btn.gold:hover{ background:var(--gold-light); }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--navy-2); color:#c8c6c1; padding:80px 0 0; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:50px; padding-bottom:60px; border-bottom:1px solid rgba(216,183,135,0.15); }
+  .footer-grid h4{ font-family:var(--sans); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-light); margin:0 0 22px; }
+  .footer-grid ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:14px; }
+  .footer-grid ul a:hover{ color:var(--gold-light); }
+  .f-brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .f-brand img{ height:40px; width:40px; border-radius:50%; box-shadow:0 0 0 1px var(--gold); }
+  .f-brand b{ font-family:var(--display); font-size:18px; color:var(--cream); }
+  footer .f-about{ font-size:14px; line-height:1.75; color:#a9a69f; max-width:34ch; }
+  .bottom-bar{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:26px 0; font-size:12px; color:#8b8a85; }
+  @media (max-width:900px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .footer-grid{ grid-template-columns:1fr; } }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Car Detail sections ---------- */
+  .detail{ padding:110px 0; scroll-margin-top:96px; border-bottom:1px solid var(--line); }
+  .detail.on-cream{ background:var(--cream); }
+  .detail.on-white{ background:var(--white); }
+  .detail-head{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:50px; }
+  .detail-head .eyebrow{ margin-bottom:14px; }
+  .detail-head h2{ font-family:var(--display); font-weight:700; font-size:clamp(32px,4.6vw,56px); line-height:1.05; margin:0; color:var(--ink); }
+  .detail-head h2 em{ font-style:italic; font-weight:500; color:var(--oxblood); display:block; }
+  .detail-head p{ color:var(--stone); font-size:15.5px; line-height:1.8; margin:0; }
+  .detail-specs{ display:flex; gap:36px; margin-top:22px; padding-top:20px; border-top:1px solid var(--line); }
+  .detail-specs .spec{ display:flex; flex-direction:column; gap:5px; }
+  .detail-specs .spec .k{ font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); }
+  .detail-specs .spec .v{ font-family:var(--display); font-style:italic; font-weight:600; font-size:18px; color:var(--ink); }
+  .detail-hero{ width:100%; aspect-ratio:20/9; overflow:hidden; margin-bottom:22px; }
+  .detail-hero img{ width:100%; height:100%; object-fit:cover; }
+  .detail-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:22px; }
+  .detail-strip .d-frame{ aspect-ratio:3/4; overflow:hidden; }
+  .detail-strip img{ width:100%; height:100%; object-fit:cover; transition:transform .8s ease; }
+  .detail-strip .d-frame:hover img{ transform:scale(1.06); }
+  .detail-strip figcaption{ margin-top:9px; font-family:var(--display); font-style:italic; font-size:13.5px; color:var(--stone); }
+  .detail-cta{ margin-top:38px; display:flex; gap:16px; flex-wrap:wrap; }
+  @media (max-width:860px){ .detail-head{ grid-template-columns:1fr; gap:20px; } .detail-strip{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .detail-strip{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="contacts">
+      <span>&#9742; +44 (0)20 0000 0000</span>
+      <span>&#9993; enquiries@elitepremiumservices.co.uk</span>
+    </div>
+    <div class="socials">
+      <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="Elite Logo.png" alt="Elite Premium Services Limited logo">
+      <div class="brand-text"><b>Elite Premium</b><small>EXCLUSIVE LUXURY SERVICES</small></div>
+    </a>
+    <nav class="primary">
+      <a href="#fleet">Our Fleet</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#enquire">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+440000000000" class="btn dark" style="border-color:var(--gold-light); color:var(--cream);">&#9742; <span class="long">Call Us</span></a>
+      <a href="#enquire" class="btn solid">Get A Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow">London Chauffeur Company</div>
+      <h1>Chauffeured journeys, <em>without compromise</em></h1>
+      <p>Elite Premium Services Limited provides prestigious chauffeur-driven cars across London and the UK &mdash; for airport transfers, business meetings, events and weddings &mdash; with a fleet led by the Rolls‑Royce Phantom, Rolls‑Royce Ghost, Mercedes‑Benz S‑Class, Mercedes‑Benz V‑Class and Mercedes‑Benz G‑Class.</p>
+      <div class="hero-btns">
+        <a href="#enquire" class="btn solid">Get An Instant Quote</a>
+        <a href="#fleet" class="btn dark" style="border-color:var(--gold-light); color:var(--cream);">View Our Fleet</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>24/7</b><span>Availability</span></div>
+        <div><b>5</b><span>Signature Vehicles</span></div>
+        <div><b>100%</b><span>Professional Chauffeurs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="wrap">
+    <div class="grid reveal">
+      <div>
+        <div class="eyebrow">Who We Are</div>
+        <h2>London's home for chauffeured luxury motoring.</h2>
+      </div>
+      <div>
+        <p>Elite Premium Services Limited provides clients with prestigious chauffeur-driven cars and a one‑of‑a‑kind, professional and personal experience. From airport transfers to business meetings, events and wedding chauffeuring, our small and meticulously kept fleet is matched with chauffeurs trained to the highest standard.</p>
+        <ul class="intro-points">
+          <li>Fixed rates, no hidden surcharges</li>
+          <li>24 hour service, 7 days a week</li>
+          <li>Fully insured, professionally maintained fleet</li>
+          <li>Personalised, tailored service every journey</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet" id="fleet">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Our Fleet</div>
+      <h2>A Closer Look at Our Signature Fleet</h2>
+      <p>Five motorcars, each maintained to a single uncompromising standard &mdash; choose the character that suits your journey.</p>
+    </div>
+    <div class="fleet-grid reveal">
+
+      <div class="fleet-card">
+        <div class="fc-img">
+          <span class="fc-tag">Luxe Class</span>
+          <img src="Phantom/Phantom Front Face.png" alt="Rolls-Royce Phantom front elevation">
+        </div>
+        <div class="fc-body">
+          <h3>Rolls‑Royce Phantom</h3>
+          <div class="fc-specs"><span><b>3</b> Passengers</span><span><b>2</b> Large Suitcases</span></div>
+          <p>The pinnacle of chauffeured luxury since 1925 &mdash; hand‑stitched leather, rich wood veneers and serene comfort for clients who expect nothing less than peerless refinement.</p>
+          <div class="fc-cta">
+            <a href="#phantom-detail" class="fc-link">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fc-img">
+          <span class="fc-tag">Luxe Class</span>
+          <img src="Ghost Magzine/Ghost Front 3.png" alt="Rolls-Royce Ghost front elevation">
+        </div>
+        <div class="fc-body">
+          <h3>Rolls‑Royce Ghost</h3>
+          <div class="fc-specs"><span><b>3</b> Passengers</span><span><b>2</b> Large Suitcases</span></div>
+          <p>A modern expression of refined luxury &mdash; bold exterior design paired with fine leather, cutting‑edge technology and ambient lighting for a smooth, composed journey.</p>
+          <div class="fc-cta">
+            <a href="#ghost-detail" class="fc-link">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fc-img">
+          <span class="fc-tag">First Class</span>
+          <img src="S-Class/sclass_front.png" alt="Mercedes-Benz S-Class front elevation">
+        </div>
+        <div class="fc-body">
+          <h3>Mercedes‑Benz S‑Class</h3>
+          <div class="fc-specs"><span><b>3</b> Passengers</span><span><b>2</b> Large / 2 Cabin</span></div>
+          <p>The global standard for executive chauffeuring &mdash; quiet acoustic serenity, reclining massage leather seating, and long-wheelbase poise for seamless corporate travel.</p>
+          <div class="fc-cta">
+            <a href="#sclass-detail" class="fc-link">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fc-img">
+          <span class="fc-tag">Executive Class</span>
+          <img src="V-Class/vclass_front.png" alt="Mercedes-Benz V-Class front elevation">
+        </div>
+        <div class="fc-body">
+          <h3>Mercedes‑Benz V‑Class</h3>
+          <div class="fc-specs"><span><b>6 &ndash; 7</b> Passengers</span><span><b>6 &ndash; 7</b> Large Cases</span></div>
+          <p>The definitive luxury group chauffeur solution &mdash; mobile conference face-to-face seating, spacious cabin comfort, and vast luggage volume for delegations and roadshows.</p>
+          <div class="fc-cta">
+            <a href="#vclass-detail" class="fc-link">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="fleet-card">
+        <div class="fc-img">
+          <span class="fc-tag">Executive SUV</span>
+          <img src="PR26YYA MAGZINE/PR26YYA Front.png" alt="Mercedes-Benz G-Class front elevation">
+        </div>
+        <div class="fc-body">
+          <h3>Mercedes‑Benz G‑Class</h3>
+          <div class="fc-specs"><span><b>4</b> Passengers</span><span><b>4</b> Suitcases</span></div>
+          <p>Iconic design with unmatched capability &mdash; a bold matte exterior and handcrafted luxury cabin make the G‑Class equally commanding in Mayfair or the countryside.</p>
+          <div class="fc-cta">
+            <a href="#gwagon-detail" class="fc-link">View Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHANTOM DETAIL -->
+<section class="detail on-white" id="phantom-detail">
+  <div class="wrap">
+    <div class="detail-head reveal">
+      <div>
+        <div class="eyebrow">Luxe Class</div>
+        <h2>Rolls‑Royce<em>Phantom</em></h2>
+      </div>
+      <div>
+        <p>The Rolls‑Royce Phantom defines the pinnacle of chauffeured luxury. With a legacy of craftsmanship since 1925, it offers a sanctuary of elegance, hand‑stitched leather, rich wood veneers and serene comfort.</p>
+        <div class="detail-specs">
+          <div class="spec"><span class="k">Passengers</span><span class="v">3</span></div>
+          <div class="spec"><span class="k">Suitcases</span><span class="v">2 / 2 carry‑ons</span></div>
+          <div class="spec"><span class="k">Since</span><span class="v">1925</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero reveal"><img src="Rolls Royce Phantom HD Image.png" alt="Rolls-Royce Phantom, full detail view"></div>
+    <div class="detail-strip reveal">
+      <figure><div class="d-frame"><img src="Phantom/Phantom Front Face.png" alt="Phantom front elevation"></div><figcaption>Kerbside, Mayfair</figcaption></figure>
+      <figure><div class="d-frame"><img src="Phantom/Front seat .png" alt="Phantom front cabin"></div><figcaption>Front cabin, detail</figcaption></figure>
+      <figure><div class="d-frame"><img src="Phantom/Car mode.png" alt="Phantom drive mode control"></div><figcaption>Command centre</figcaption></figure>
+      <figure><div class="d-frame"><img src="Phantom/back seat black roof top.png" alt="Phantom rear cabin, black roof lining"></div><figcaption>Rear cabin, starlight roof</figcaption></figure>
+    </div>
+    <div class="detail-cta reveal">
+      <a href="#enquire" class="btn solid">Enquire About The Phantom</a>
+      <a href="#fleet" class="btn dark" style="border-color:var(--gold); color:var(--ink);">Back To Fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- GHOST DETAIL -->
+<section class="detail on-cream" id="ghost-detail">
+  <div class="wrap">
+    <div class="detail-head reveal">
+      <div>
+        <div class="eyebrow">Luxe Class</div>
+        <h2>Rolls‑Royce<em>Ghost</em></h2>
+      </div>
+      <div>
+        <p>The Rolls‑Royce Ghost combines iconic design with a refined interior featuring fine leather, cutting‑edge technology and ambient lighting. Elevated seating and smooth handling ensure comfort on every journey.</p>
+        <div class="detail-specs">
+          <div class="spec"><span class="k">Passengers</span><span class="v">3</span></div>
+          <div class="spec"><span class="k">Suitcases</span><span class="v">2 / 2 carry‑ons</span></div>
+          <div class="spec"><span class="k">Character</span><span class="v">Understated presence</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero reveal"><img src="Ghost Magzine/Ghost Front 3.png" alt="Rolls-Royce Ghost front elevation, London street at dusk"></div>
+    <div class="detail-strip reveal">
+      <figure><div class="d-frame"><img src="Ghost Magzine/Ghost Side ful body.png" alt="Ghost full side profile"></div><figcaption>Side profile</figcaption></figure>
+      <figure><div class="d-frame"><img src="Ghost Magzine/Front Seat.png" alt="Ghost front cabin"></div><figcaption>The cabin, forward</figcaption></figure>
+      <figure><div class="d-frame"><img src="Ghost Magzine/main meter hd.png" alt="Ghost instrument display"></div><figcaption>Instrument fascia</figcaption></figure>
+      <figure><div class="d-frame"><img src="Ghost Magzine/handle .png" alt="Ghost door handle detail"></div><figcaption>Door furniture</figcaption></figure>
+    </div>
+    <div class="detail-cta reveal">
+      <a href="#enquire" class="btn solid">Enquire About The Ghost</a>
+      <a href="#fleet" class="btn dark" style="border-color:var(--gold); color:var(--ink);">Back To Fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- S-CLASS DETAIL -->
+<section class="detail on-white" id="sclass-detail">
+  <div class="wrap">
+    <div class="detail-head reveal">
+      <div>
+        <div class="eyebrow">First Class</div>
+        <h2>Mercedes‑Benz<em>S‑Class</em></h2>
+      </div>
+      <div>
+        <p>The Mercedes‑Benz S‑Class defines first-class executive chauffeuring worldwide. Engineered with acoustic privacy glass, active air suspension, and executive reclining seating in fine nappa leather, the S‑Class turns London's bustling avenues into an effortless haven of productivity and calm.</p>
+        <div class="detail-specs">
+          <div class="spec"><span class="k">Passengers</span><span class="v">3</span></div>
+          <div class="spec"><span class="k">Suitcases</span><span class="v">2 Large / 2 Cabin</span></div>
+          <div class="spec"><span class="k">Character</span><span class="v">First-Class Executive</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero reveal"><img src="S-Class/sclass_front.png" alt="Mercedes-Benz S-Class front elevation outside London luxury hotel"></div>
+    <div class="detail-strip reveal">
+      <figure><div class="d-frame"><img src="S-Class/sclass_interior.png" alt="S-Class digital cockpit and tan leather"></div><figcaption>Tan leather &amp; digital cockpit</figcaption></figure>
+      <figure><div class="d-frame"><img src="S-Class/sclass_detail.png" alt="S-Class in motion along Whitehall"></div><figcaption>Whitehall executive transit</figcaption></figure>
+      <figure><div class="d-frame"><img src="S-Class/sclass_side.png" alt="S-Class curbside arrival stance"></div><figcaption>Mayfair curbside arrival</figcaption></figure>
+      <figure><div class="d-frame"><img src="S-Class/sclass_rear.png" alt="S-Class side flank and multi-spoke alloy detail"></div><figcaption>Flank &amp; alloy craftsmanship</figcaption></figure>
+    </div>
+    <div class="detail-cta reveal">
+      <a href="#enquire" class="btn solid">Enquire About The S‑Class</a>
+      <a href="#fleet" class="btn dark" style="border-color:var(--gold); color:var(--ink);">Back To Fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- V-CLASS DETAIL -->
+<section class="detail on-cream" id="vclass-detail">
+  <div class="wrap">
+    <div class="detail-head reveal">
+      <div>
+        <div class="eyebrow">Executive Class</div>
+        <h2>Mercedes‑Benz<em>V‑Class</em></h2>
+      </div>
+      <div>
+        <p>The Mercedes‑Benz V‑Class Extra-Long is the pinnacle of group executive chauffeur travel in London. Configured with face-to-face conference seating in supple black leather, deployable meeting tables, and generous luggage capacity, it is the premier choice for corporate roadshows, delegations, VIP family itineraries, and airport transfers.</p>
+        <div class="detail-specs">
+          <div class="spec"><span class="k">Passengers</span><span class="v">6 &ndash; 7</span></div>
+          <div class="spec"><span class="k">Suitcases</span><span class="v">6 &ndash; 7 Large</span></div>
+          <div class="spec"><span class="k">Character</span><span class="v">Mobile Boardroom Lounge</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero reveal"><img src="V-Class/vclass_front.png" alt="Mercedes-Benz V-Class front elevation outside Kensington townhouse"></div>
+    <div class="detail-strip reveal">
+      <figure><div class="d-frame"><img src="V-Class/vclass_interior.png" alt="V-Class rear conference seating in black leather"></div><figcaption>VIP conference seating</figcaption></figure>
+      <figure><div class="d-frame"><img src="V-Class/vclass_detail.png" alt="V-Class in motion through London"></div><figcaption>Chauffeured city transit</figcaption></figure>
+      <figure><div class="d-frame"><img src="V-Class/vclass_side.png" alt="V-Class front elevation and diamond star grille"></div><figcaption>Diamond star front grille</figcaption></figure>
+      <figure><div class="d-frame"><img src="V-Class/vclass_rear.png" alt="V-Class extra-long wheelbase profile outside Mayfair residence"></div><figcaption>Extra-long wheelbase elegance</figcaption></figure>
+    </div>
+    <div class="detail-cta reveal">
+      <a href="#enquire" class="btn solid">Enquire About The V‑Class</a>
+      <a href="#fleet" class="btn dark" style="border-color:var(--gold); color:var(--ink);">Back To Fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- G-WAGON DETAIL -->
+<section class="detail on-white" id="gwagon-detail">
+  <div class="wrap">
+    <div class="detail-head reveal">
+      <div>
+        <div class="eyebrow">Executive Class</div>
+        <h2>Mercedes‑Benz<em>G‑Class</em></h2>
+      </div>
+      <div>
+        <p>The Mercedes‑Benz G‑Class combines iconic design with unmatched capability. Its bold exterior pairs with a refined interior, cutting‑edge tech and ambient lighting &mdash; equally commanding for high-profile arrivals in Mayfair or journeys beyond.</p>
+        <div class="detail-specs">
+          <div class="spec"><span class="k">Passengers</span><span class="v">4</span></div>
+          <div class="spec"><span class="k">Suitcases</span><span class="v">4</span></div>
+          <div class="spec"><span class="k">Character</span><span class="v">Bold, capable</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero reveal"><img src="PR26YYA MAGZINE/PR26YYA Front.png" alt="Mercedes-Benz G-Class front elevation, city dusk"></div>
+    <div class="detail-strip reveal">
+      <figure><div class="d-frame"><img src="PR26YYA MAGZINE/SIde Image.png" alt="G-Class side profile"></div><figcaption>Side profile</figcaption></figure>
+      <figure><div class="d-frame"><img src="PR26YYA MAGZINE/Front Seat Image.png" alt="G-Class front cabin"></div><figcaption>The cabin, forward</figcaption></figure>
+      <figure><div class="d-frame"><img src="PR26YYA MAGZINE/Two open door.jpeg" alt="G-Class with both front doors open"></div><figcaption>Doors open, kerbside</figcaption></figure>
+      <figure><div class="d-frame"><img src="PR26YYA MAGZINE/back image .png" alt="G-Class rear view"></div><figcaption>Rear elevation</figcaption></figure>
+    </div>
+    <div class="detail-cta reveal">
+      <a href="#enquire" class="btn solid">Enquire About The G‑Class</a>
+      <a href="#fleet" class="btn dark" style="border-color:var(--gold); color:var(--ink);">Back To Fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-head light reveal">
+      <div class="eyebrow center">Detail &amp; Craft</div>
+      <h2>Every Angle, Meticulously Kept</h2>
+      <p>From hand-stitched nappa hides to starlight canopies and whisper-quiet V8 poise, our vehicles represent London's most refined mobile environments.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-frame"><img src="Phantom/Phantom Front Face.png" alt="Rolls-Royce Phantom front face"></div>
+      <div class="g-frame"><img src="Ghost Magzine/Ghost Front 3.png" alt="Rolls-Royce Ghost elevation"></div>
+      <div class="g-frame"><img src="S-Class/sclass_front.png" alt="Mercedes-Benz S-Class curbside"></div>
+      <div class="g-frame"><img src="V-Class/vclass_interior.png" alt="Mercedes-Benz V-Class lounge seating"></div>
+      <div class="g-frame"><img src="PR26YYA MAGZINE/Front Seat Image.png" alt="Mercedes-Benz G-Class cabin"></div>
+      <div class="g-frame"><img src="Phantom/back seat black roof top.png" alt="Rolls-Royce Phantom starlight roof"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Our Services</div>
+      <h2>Our Best Services, Only For You</h2>
+      <p>Whatever the occasion or itinerary, Elite Premium Services Limited offers reliability and excellence, all year round.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="ic">E</div>
+        <h3>Executive</h3>
+        <p>Professional chauffeur services for business associates, guaranteeing your safe and timely arrival at every meeting.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic">A</div>
+        <h3>Airport Transfers</h3>
+        <p>Begin or end your journey seated in a luxury vehicle, with a world‑class chauffeur experience to and from every London airport.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic">V</div>
+        <h3>Events</h3>
+        <p>Arrive fashionably and enjoy VIP treatment, with vehicles well suited to London's most exclusive occasions.</p>
+      </div>
+      <div class="service-card">
+        <div class="ic">W</div>
+        <h3>Weddings</h3>
+        <p>Luxury vehicles available to accommodate the bride and groom, and their guests, on the most important day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Client Feedback</div>
+      <h2>What Our Clients Have To Say</h2>
+    </div>
+    <div class="t-grid reveal">
+      <div class="t-card">
+        <span class="quote-mark">&#8220;</span>
+        <p>Travelling in style and comfort, our fixed‑price airport transfers offer an unparalleled journey to and from any London airport.</p>
+        <cite>Airport Chauffeurs</cite>
+      </div>
+      <div class="t-card">
+        <span class="quote-mark">&#8220;</span>
+        <p>A prestigious, safe and relaxed drive to every meeting and corporate event — our chauffeurs are consummate professionals.</p>
+        <cite>Executive Cars</cite>
+      </div>
+      <div class="t-card">
+        <span class="quote-mark">&#8220;</span>
+        <p>An exceptional fleet perfect for your special day, available to drive the bride and groom, or their guests, in style.</p>
+        <cite>Wedding Chauffeurs</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="enquire">
+  <div class="wrap in">
+    <div class="eyebrow">Book Your Chauffeur Service Today</div>
+    <h2>Get an instant quote and reserve your chauffeured car now.</h2>
+    <div class="btn-row">
+      <a href="mailto:enquiries@elitepremiumservices.co.uk" class="btn gold">Email Enquiries</a>
+      <a href="tel:+440000000000" class="btn" style="border-color:var(--gold-light); color:var(--cream);">Call The Office</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">
+          <img src="Elite Logo.png" alt="Elite Premium Services Limited">
+          <b>Elite Premium</b>
+        </div>
+        <p class="f-about">Elite Premium Services Limited — prestigious chauffeur‑driven cars across London and the UK, for clients who expect nothing less than excellence.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#enquire">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Executive Travel</a></li>
+          <li><a href="#services">Airport Transfers</a></li>
+          <li><a href="#services">Events</a></li>
+          <li><a href="#services">Weddings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>+44 (0)20 0000 0000</li>
+          <li>enquiries@elitepremiumservices.co.uk</li>
+          <li>London, United Kingdom</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <div>&copy; 2026 Elite Premium Services Limited. All rights reserved.</div>
+      <div>Exclusive Luxury Services</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:0.1 });
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
